@@ -59,4 +59,10 @@ public class MovieService {
         movie.reservation(command.getReservation());
         return modelMapper.map(movie, MovieDTO.class);
     }
+
+    public MovieDTO updateMovieDate(long id, UpdateDateCommand command) {
+        Movie movie = findById(id);
+        movie.setDate(command.getDate());
+        return modelMapper.map(movie, MovieDTO.class);
+    }
 }
