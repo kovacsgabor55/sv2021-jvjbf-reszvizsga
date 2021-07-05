@@ -5,6 +5,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +51,12 @@ public class MovieService {
     public MovieDTO createMovie(CreateMovieCommand command) {
         Movie movie = new Movie(idGenerator.incrementAndGet(), command.getTitle(), command.getDate(), command.getMaxReservation(), command.getMaxReservation());
         movies.add(movie);
+        return modelMapper.map(movie, MovieDTO.class);
+    }
+
+    public MovieDTO reserveMovieForCinema(long id, cinema.CreateReservationCommand command) {
+        Movie movie = findById(id);
+        movie.reservation(command.getReservation());
         return modelMapper.map(movie, MovieDTO.class);
     }
 }

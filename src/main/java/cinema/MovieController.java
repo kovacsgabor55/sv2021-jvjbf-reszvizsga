@@ -33,4 +33,8 @@ public class MovieController {
         return movieService.createMovie(command);
     }
 
+    @PutMapping("/{id}/reserve")
+    public MovieDTO reserveMovieForCinema(@PathVariable long id, @RequestBody CreateReservationCommand command) {
+        return movieService.reserveMovieForCinema(id, command);
+    }
 }
