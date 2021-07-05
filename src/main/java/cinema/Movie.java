@@ -14,11 +14,11 @@ public class Movie {
     private String title;
     private LocalDateTime date;
     private int maxReservation;
-    private int freeReservation;
+    private int freeSpaces;
 
     public void reservation(int numberOfSeat) {
-        if (freeReservation >= numberOfSeat) {
-            maxReservation -= numberOfSeat;
+        if (freeSpaces >= numberOfSeat) {
+            freeSpaces -= numberOfSeat;
         } else {
             throw new IllegalStateException("No more empty seat!");
         }

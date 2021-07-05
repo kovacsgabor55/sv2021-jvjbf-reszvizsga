@@ -12,5 +12,5 @@ import java.time.LocalDateTime;
 public class MovieDTO {
     private String title;
     private LocalDateTime date;
-    private int freeReservation;
+    private int freeSpaces;
 }
