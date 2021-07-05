@@ -5,7 +5,6 @@ import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -64,5 +63,10 @@ public class MovieService {
         Movie movie = findById(id);
         movie.setDate(command.getDate());
         return modelMapper.map(movie, MovieDTO.class);
+    }
+
+    public void deleteAllMovie() {
+        movies.clear();
+        idGenerator.set(0L);
     }
 }

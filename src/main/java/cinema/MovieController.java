@@ -42,4 +42,9 @@ public class MovieController {
     public MovieDTO updateMovieDate(@PathVariable long id, @RequestBody UpdateDateCommand command) {
         return movieService.updateMovieDate(id, command);
     }
+
+    @DeleteMapping()
+    public void deleteAllMovie() {
+        movieService.deleteAllMovie();
+    }
 }
