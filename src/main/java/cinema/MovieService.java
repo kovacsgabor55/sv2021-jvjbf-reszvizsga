@@ -32,4 +32,15 @@ public class MovieService {
         return modelMapper.map(filtered, targetListType);
     }
 
+
+    public MovieDTO searchMovieById(long id) {
+        return modelMapper.map(findById(id), MovieDTO.class);
+    }
+
+    private Movie findById(long id) {
+        return movies.stream()
+                .filter(e -> e.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Movie not fount: " + id));
+    }
 }
