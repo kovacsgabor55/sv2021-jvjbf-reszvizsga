@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,6 +17,8 @@ public class MovieService {
     private final ModelMapper modelMapper;
 
     private final List<Movie> movies = new ArrayList<>();
+
+    private final AtomicLong idGenerator = new AtomicLong();
 
     public MovieService(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
@@ -42,5 +45,11 @@ public class MovieService {
                 .filter(e -> e.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Movie not fount: " + id));
+    }
+
+    public MovieDTO createMovie(CreateMovieCommand command) {
+        Movie movie = new Movie(idGenerator.incrementAndGet(), command.getTitle(), command.getDate(), command.getMaxReservation(), command.getMaxReservation());
+        movies.add(movie);
+        return modelMapper.map(movie, MovieDTO.class);
     }
 }

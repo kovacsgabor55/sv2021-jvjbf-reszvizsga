@@ -12,13 +12,13 @@ import java.time.LocalDateTime;
 public class Movie {
     private Long id;
     private String title;
-    private LocalDateTime playDate;
-    private int maxSeat;
-    private int freeSeat;
+    private LocalDateTime date;
+    private int maxReservation;
+    private int freeReservation;
 
     public void reservation(int numberOfSeat) {
-        if (freeSeat >= numberOfSeat) {
-            maxSeat -= numberOfSeat;
+        if (freeReservation >= numberOfSeat) {
+            maxReservation -= numberOfSeat;
         } else {
             throw new IllegalStateException("No more empty seat!");
         }

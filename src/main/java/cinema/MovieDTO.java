@@ -11,6 +11,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class MovieDTO {
     private String title;
-    private LocalDateTime playDate;
-    private int freeSeat;
+    private LocalDateTime date;
+    private int freeReservation;
 }
