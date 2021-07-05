@@ -27,7 +27,7 @@ A `Movie` osztályban továbbá szerepeljen egy metódus ami paraméterül vár 
 
 A `MovieService` osztály tárolja egy listában a filmeket. Kezdetben a lista üres. Ez az osztály felelős az egyedi azonosítók kiosztásáért is. 
 
-A `MoviController` osztály alapértelmezzetten a `api/cinema` URL-n várja a kéréseket és a következő funkciókat valósítja meg!
+A `MovieController` osztály alapértelmezzetten a `api/cinema` URL-n várja a kéréseket és a következő funkciókat valósítja meg!
 
 * Le lehet kérdezni az összes filmet, és opcionálisan a film címére is rá lehet szűrni. Ekkor mindig a címet, az időpontot és szabad helyek számát adjuk vissza!
 
